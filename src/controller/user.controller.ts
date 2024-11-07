@@ -1,0 +1,67 @@
+import { CookieOptions, NextFunction, Request, Response } from "express";
+import jwt from "jsonwebtoken";
+import { successResponse } from "./response.controller";
+
+import createHttpError from "http-errors";
+
+export const handleLoginUser = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
+  try {
+    const dbEmail = "demo@gmail.com";
+    const dbPassword = "12345A@";
+    const { email, password } = req.body;
+    if (email !== dbEmail || password !== dbPassword) {
+      return next(createHttpError(401, "Invalid email or password"));
+    }
+
+    const accessToken = jwt.sign(
+      { user: { email: dbEmail } },
+      process.env.JWT_SECRET_KEY || "jwt_secret_key",
+      {
+        expiresIn: "1h",
+      }
+    );
+
+    res.cookie("accessToken", accessToken, {
+      httpOnly: true,
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+      secure: process.env.NODE_ENV === "production",
+      maxAge: 3600000,
+    });
+
+    successResponse(res, {
+      statusCode: 200,
+      message: "Login successful",
+      payload: accessToken,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Server error", error });
+  }
+};
+
+export const handleLogOut = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
+  try {
+    const cookieOptions: CookieOptions = {
+      httpOnly: true,
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+      secure: process.env.NODE_ENV === "production",
+    };
+
+    res.clearCookie("accessToken", cookieOptions);
+    successResponse(res, {
+      statusCode: 200,
+      message: "LogOut successfully",
+      payload: {},
+    });
+  } catch (error) {
+    next(error);
+  }
+};
