@@ -20,9 +20,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin:[ "http://localhost:3000","http://localhost:3001"],
+    origin: "*",
     credentials: true,
-  })
+  }),
 );
 app.use("/api/v1", rootRouter);
 app.get("/", (req: Request, res: Response, next: NextFunction) => {
