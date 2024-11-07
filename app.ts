@@ -24,6 +24,7 @@ app.use(
       "https://www.legalmatterbd.com/",
       "https://www.legalmatterbd.com",
       "www.legalmatterbd.com",
+      "http://localhost:3000",
     ],
     credentials: true,
   }),
