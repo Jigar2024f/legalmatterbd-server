@@ -65,3 +65,24 @@ export const handleLogOut = async (
     next(error);
   }
 };
+
+export const handleGetCurrentUser = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    console.log({ user: req.user });
+    if (!req.user) {
+      return next(createHttpError(403, "User not authenticated"));
+    }
+
+    successResponse(res, {
+      statusCode: 200,
+      message: "Fetched current user successfully",
+      payload: { user: true },
+    });
+  } catch (error) {
+    next(error);
+  }
+};

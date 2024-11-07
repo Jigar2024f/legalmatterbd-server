@@ -21,13 +21,14 @@ app.use(cookieParser());
 app.use(
   cors({
     origin: [
-      "https://www.legalmatterbd.com/",
+      "https://www.legalmatterbd.com",
       "https://www.legalmatterbd.com",
       "www.legalmatterbd.com",
       "http://localhost:3000",
+      "https://legal-client-rosy.vercel.app",
     ],
     credentials: true,
-  }),
+  })
 );
 app.use("/api/v1", rootRouter);
 app.get("/", (req: Request, res: Response, next: NextFunction) => {
