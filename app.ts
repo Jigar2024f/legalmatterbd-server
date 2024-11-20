@@ -34,7 +34,7 @@ app.use("/api/v1", rootRouter);
 app.get("/", (req: Request, res: Response, next: NextFunction) => {
   successResponse(res, {
     statusCode: 200,
-    message: "Hello, I am typescript and express server. image uploader",
+    message: "Hello, I am legalmatterbd server",
     payload: {},
   });
 });
