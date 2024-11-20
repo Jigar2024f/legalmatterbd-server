@@ -1,0 +1,4 @@
+PORT=5000
+EMAIL=jigarsir@gmail.com
+PASSWORD=Jigar@2024
+dbURL=mongodb+srv://LegalMatterBD:tIwPqcNQAgkXiKYd@cluster0.udrxo.mongodb.net/LegalMatterDB

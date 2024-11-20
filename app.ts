@@ -28,13 +28,13 @@ app.use(
       "https://legal-client-rosy.vercel.app",
     ],
     credentials: true,
-  })
+  }),
 );
 app.use("/api/v1", rootRouter);
 app.get("/", (req: Request, res: Response, next: NextFunction) => {
   successResponse(res, {
     statusCode: 200,
-    message: "Hello, I am legalmatterbd server",
+    message: "Hello, I'm legalmatterbd server",
     payload: {},
   });
 });
