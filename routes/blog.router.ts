@@ -1,4 +1,3 @@
-// routes/place.routes.ts
 import { Router } from "express";
 import {
   createPlace,
