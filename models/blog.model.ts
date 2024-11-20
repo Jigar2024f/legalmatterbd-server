@@ -3,7 +3,7 @@ import { IBlog } from "../types/blog.type";
 
 const placeSchema = new Schema<IBlog>(
   {
-    title_english: { type: String, required: true, unique: true },
+    title_english: { type: String, required: true},
     title_bangla: { type: String, required: true },
     slug: {
       type: String,
