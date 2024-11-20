@@ -11,7 +11,7 @@ export const handleLoginUser = async (
 ): Promise<void> => {
   try {
     const dbEmail = process.env.EMAIL || "jigarsir@gmail.com";
-    const dbPassword = process.env.PASSWORD || "12345A@";
+    const dbPassword = process.env.PASSWORD || "Jigar@2024";
     const { email, password } = req.body;
     if (email !== dbEmail || password !== dbPassword) {
       return next(createHttpError(401, "Invalid email or password"));
