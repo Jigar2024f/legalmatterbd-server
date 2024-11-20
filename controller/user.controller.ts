@@ -11,15 +11,14 @@ export const handleLoginUser = async (
 ): Promise<void> => {
   try {
     const dbEmail = process.env.EMAIL || "jigarsir@gmail.com";
-    const dbPassword = process.env.PASSWORD || "Jigar@2024";
+    const dbPassword = process.env.PASSWORD || "12345A@";
     const { email, password } = req.body;
     if (email !== dbEmail || password !== dbPassword) {
       return next(createHttpError(401, "Invalid email or password"));
     }
-
     const accessToken = jwt.sign(
       { user: { email: dbEmail } },
-      process.env.JWT_SECRET_KEY || "jwt_secret_key",
+      process.env.JWT_SECRET_KEY || "dfdsfdsfsdfsdfsddfdsfdsf",
       {
         expiresIn: "1h",
       }
