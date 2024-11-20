@@ -1,7 +1,7 @@
 import { CookieOptions, NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import { successResponse } from "./response.controller";
-
+import "dotenv/config";
 import createHttpError from "http-errors";
 
 export const handleLoginUser = async (
@@ -10,8 +10,8 @@ export const handleLoginUser = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const dbEmail = "demo@gmail.com";
-    const dbPassword = "12345A@";
+    const dbEmail = process.env.EMAIL;
+    const dbPassword = process.env.PASSWORD;
     const { email, password } = req.body;
     if (email !== dbEmail || password !== dbPassword) {
       return next(createHttpError(401, "Invalid email or password"));

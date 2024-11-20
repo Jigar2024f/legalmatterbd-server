@@ -1,8 +1,8 @@
 import http from "http";
 import app from "./app";
 import connectDB from "./config/db";
-
-const PORT = process.env.PORT || 3001;
+import "dotenv/config";
+const PORT = process.env.PORT || 4000;
 const server = http.createServer(app);
 
 const main = async () => {
@@ -14,7 +14,7 @@ const main = async () => {
   } catch (error) {
     console.error(
       "Failed to start the server due to a DB connection error",
-      error,
+      error
     );
   }
 };

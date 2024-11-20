@@ -8,4 +8,5 @@ export interface IBlog extends Document {
   description_bangla: string;
   category_english: string;
   category_bangla: string;
+  slug: string;
 }

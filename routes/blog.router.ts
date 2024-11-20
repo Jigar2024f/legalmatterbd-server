@@ -13,7 +13,7 @@ const blogRuter: Router = Router();
 
 blogRuter.post("/", isLogin, createPlace);
 blogRuter.get("/", getAllPlaces);
-blogRuter.get("/:id", getPlaceById);
+blogRuter.get("/:slug", getPlaceById);
 blogRuter.put("/:id", isLogin, updatePlaceById);
 blogRuter.delete("/:id", deletePlaceById);
 
