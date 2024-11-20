@@ -20,6 +20,6 @@ const placeSchema = new Schema<IBlog>(
   }
 );
 
-const Blog = model<IBlog>("Place", placeSchema);
+const Blog = model<IBlog>("Blog", placeSchema);
 
 export default Blog;

@@ -109,7 +109,6 @@ export const updatePlaceById = async (
   }
 };
 
-// Delete a Place by ID
 export const deletePlaceById = async (
   req: Request,
   res: Response,
