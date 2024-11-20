@@ -14,7 +14,8 @@ export const isLogin = (req: Request, res: Response, next: NextFunction) => {
     }
     const decode = jwt.verify(
       accessToken,
-      process.env.JWT_SECRET_KEY || "jwt_secret_key"
+      process.env.JWT_SECRET_KEY ||
+        "dfdsffkjdskflkjldjfjfjljsflksdjfjldkfjlkdsf56"
     ) as JwtPayload;
 
     if (!decode || !decode.user) {

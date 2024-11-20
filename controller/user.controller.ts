@@ -18,7 +18,8 @@ export const handleLoginUser = async (
     }
     const accessToken = jwt.sign(
       { user: { email: dbEmail } },
-      process.env.JWT_SECRET_KEY || "dfdsfdsfsdfsdfsddfdsfdsf",
+      process.env.JWT_SECRET_KEY ||
+        "dfdsffkjdskflkjldjfjfjljsflksdjfjldkfjlkdsf56",
       {
         expiresIn: "1h",
       }
@@ -74,13 +75,13 @@ export const handleGetCurrentUser = async (
     if (!req.user) {
       return next(createHttpError(403, "User not authenticated"));
     }
-
     successResponse(res, {
       statusCode: 200,
       message: "Fetched current user successfully",
       payload: { user: true },
     });
   } catch (error) {
+    console.log(error);
     next(error);
   }
 };
